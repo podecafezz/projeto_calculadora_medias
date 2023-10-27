@@ -1,11 +1,6 @@
 const form = document.getElementById('form-atividade');
-const imgAprovado = '<img src="./images/aprovado.png" alt = "Emoji Celebrando" />';
-const imgReprovado = '<img src="./images/Reprovado.png" alt = "Emoji Triste" />';
-const atividades = [];
-const notas = [];
-const spanAprovado = '<span class="resultado aprovado">Aprovado</span>';
-const spanReprovado = '<span class="resultado reprovado">Reprovado</span>';
-const notaMinima = parseFloat(prompt("Digite a nota mínima:"));
+const nomeContato = [];
+const numero = [];
 
 let linhas = '';
 
@@ -14,52 +9,31 @@ form.addEventListener('submit', function (e) {
 
     adcionaLinha();
     atualizaTabela();
-    atualizaMedias();
-})
+});
 
 function adcionaLinha() {
-    const inputNomeAtividade = document.getElementById('nome-atividade');
-    const inputNotaAtividade = document.getElementById('nota-atividade');
+    const inputNomeContatos = document.getElementById('contato-name');
+    const inputNumero = document.getElementById('contato-number');
 
-    if (atividades.includes(inputNomeAtividade.value)) {
-        alert(`A Atividade: ${inputNomeAtividade.value} já foi adicionada!`);
+    if (nomeContato.includes(inputNomeContatos.value)) {
+        alert(`O Contato: ${inputNomeContatos.value} já foi inserido!`);
     } else {
-
-        atividades.push(inputNomeAtividade.value);
-        notas.push(parseFloat(inputNotaAtividade.value));
-
+        nomeContato.push(inputNomeContatos.value);
+        numero.push(inputNumero.value);
 
         let linha = '<tr>';
-        linha += `<td>${inputNomeAtividade.value}</td>`;
-        linha += `<td>${inputNotaAtividade.value}</td>`;
-        linha += `<td>${inputNotaAtividade.value >= notaMinima ? imgAprovado : imgReprovado}</td>`;
-        linha += '</td>';
+        linha += `<td>${inputNomeContatos.value}</td>`;
+        linha += `<td>${inputNumero.value}</td>`;
+        linha += '</tr>';
 
         linhas += linha;
     }
-        
-    inputNomeAtividade.value = '';
-    inputNotaAtividade.value = '';
+
+    inputNomeContatos.value = '';
+    inputNumero.value = '';
 }
 
 function atualizaTabela() {
-    const corpoTabela = document.querySelector('tbody');
+    const corpoTabela = document.querySelector('table tbody');
     corpoTabela.innerHTML = linhas;
-}
-
-function atualizaMedias() {
-    const mediaFinal = calculaMediaFinal();
-
-    document.getElementById('media-final-valor').innerHTML = mediaFinal.toFixed(2);
-    document.getElementById('media-final-resultado').innerHTML = mediaFinal >= notaMinima ? spanAprovado : spanReprovado;
-
-}
-
-function calculaMediaFinal() {
-    let somaDasNotas = 0;
-
-    for (let i = 0; i < notas.length; i++) {
-        somaDasNotas += notas[i];
-    }
-    return media = somaDasNotas / notas.length;
 }

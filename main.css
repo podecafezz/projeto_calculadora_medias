@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #0D1B2A;
+    background-color: #9AC5F4;
     color: whitesmoke;
     padding-top: 100px;
 }
@@ -42,22 +42,24 @@ form {
 }
 
 form input {
-    font-size: 24px;
+    font-size: 20px;
     background-color: whitesmoke;
     border: none;
     border-bottom: 2px solid #000;
     padding: 8px;
-
+    border-radius: 10px; /* Valor do raio das bordas */
 }
 
+
 form button {
-    background-color: #415A77;
+    background-color: #2e57cb;
     color: whitesmoke;
     font-size: 24px;
     font-weight: bold;
     border: none;
     cursor: pointer;
     padding: 8px;
+    border-radius: 10px; /* Valor do raio das bordas */
 }
 
 table{
@@ -79,19 +81,4 @@ table td{
 
 table td img{
     height: 30px;
-}
-
-.result{
-    padding: 8px;
-    font-weight: bold;
-    color: white;
-    background-color: #778DA9;
-    border-radius: 3px;
-}
-
-.approved{
-    background-color: #009432;
-}
-.disapproved{
-    background-color: red;
 }
